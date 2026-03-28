@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-emerald: #10b981;
+  --color-brand-emerald-dark: #059669;
+  --color-brand-navy: #422006; /* Dark Soil */
+  --color-brand-navy-light: #78350f; /* Soil */
+  --color-brand-gold: #eab308; /* Golden Crop */
+  --color-brand-gold-light: #fef08a;
+}
+
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+  }
+  .glass-card-dark {
+    background: rgba(66, 32, 6, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+  .nav-glow {
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+  }
+  .text-gradient-gold {
+    background: linear-gradient(to right, #eab308, #fef08a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-gradient-emerald {
+    background: linear-gradient(to right, #10b981, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes grow {
+  0% { transform: scaleY(0) translateY(10px); opacity: 0; }
+  100% { transform: scaleY(1) translateY(0); opacity: 1; }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animate-grow {
+  animation: grow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transform-origin: bottom center;
+}
+
+body {
+  background-color: #f0fdf4; /* Very light green */
+  color: #422006;
+}
